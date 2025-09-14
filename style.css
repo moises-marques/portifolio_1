@@ -1,0 +1,61 @@
+/* Configurações básicas para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Estilo para o Cabeçalho (Header) */
+header {
+    background-color: #fff;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilo para o nome e a profissão */
+.nome-e-profissao h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #007BFF;
+}
+
+.nome-e-profissao p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Estilo para os links de navegação */
+nav a {
+    text-decoration: none;
+    color: #555;
+    margin-left: 25px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+/* Efeito ao passar o mouse sobre os links */
+nav a:hover {
+    color: #007BFF;
+}
+
+/* Transforma os links em botões */
+nav a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF;
+    border: 1px solid #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px; /* Adiciona a borda arredondada */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efeito ao passar o mouse */
+nav a:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
