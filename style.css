@@ -1,35 +1,114 @@
-/* Configurações básicas para o corpo da página */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+/* Definição de variáveis de cores para o tema claro */
+:root {
+    --cor-primaria: #007BFF;
+    --cor-secundaria: #333;
+    --cor-fundo: #f0ec04;
+    --cor-fundo-header: #fff;
+    --cor-texto-principal: #333;
+    --cor-link-hover: #0056b3;
+    --sombra: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para o Cabeçalho (Header) */
+body {
+    min-height: 100vh;
+
+    /* Coloque sua imagem no caminho correto */
+    background: url('img/body.jpg') center/cover no-repeat fixed;
+
+    /* Remove a cor/gradiente anterior */
+    
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Header com glassmorphism + reflexo */
 header {
-    background-color: #fff;
-    padding: 20px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;             /* necessário para o ::after posicionar */
+  min-height: 150px;              /* garante altura */
+  padding: 40px 50px;             /* espaço interno */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--sombra);
+
+  /* fundo translúcido (não use cor sólida opaca) */
+  background-color: rgba(255, 255, 255, 0.06);
+
+  /* borda sutil para destacar */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* efeito real de vidro - blur sobre o que está atrás */
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+
+  /* garante que o reflexo não apareça fora do header */
+  overflow: hidden;
+}
+
+/* camada de brilho/reflexo (dá o aspecto "espelhado") */
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(255,255,255,0.06) 20%,
+    rgba(255,255,255,0.02) 35%,
+    rgba(255,255,255,0.00) 100%
+  );
+  mix-blend-mode: overlay; /* mistura o brilho com o conteúdo de trás */
+  opacity: 0.95;
+}
+
+/* fallback para navegadores que NÃO suportam backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  header {
+    /* usa um gradiente translúcido como fallback */
+    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  header::after { display: none; }
 }
 
 /* Estilo para o nome e a profissão */
 .nome-e-profissao h1 {
     margin: 0;
-    font-size: 2em;
-    color: #007BFF;
+    font-size: 2.2em;
+    color: var(--cor-fundo)
 }
 
 .nome-e-profissao p {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    font-weight: 300;
 }
 
-/* Estilo para os links de navegação */
+/* Estilos para a animação do letreiro */
+.titulo-animado {
+    overflow: hidden; 
+    white-space: nowrap;
+    width: 250px; 
+}
+
+.titulo-animado h1 {
+    display: inline-block;
+    animation: scroll-left 10s linear infinite;
+}
+
+/* A regra que cria a animação do letreiro */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Estilo para a navegação - Versão de texto com underline animado */
 nav a {
     text-decoration: none;
     color: #555;
@@ -48,7 +127,7 @@ nav a {
     text-decoration: none;
     color: #fff;
     background-color: #007BFF;
-    border: 1px solid #007BFF;
+    border: none;  
     padding: 10px 20px;
     border-radius: 5px; /* Adiciona a borda arredondada */
     transition: background-color 0.3s, color 0.3s;
@@ -56,6 +135,54 @@ nav a {
 
 /* Efeito ao passar o mouse */
 nav a:hover {
-    background-color: #0056b3;
+    background-color: #05070a;
     border-color: #0056b3;
+    color: #ffc107; /* Muda a cor da letra para amarelo */
+}
+
+/* Estilo dos ícones de redes sociais */
+/* Ícones das redes sociais - cor branca */
+.social-links a {
+    color: #fff;                   /* ← branco puro */
+    font-size: 1.5em;
+    margin-left: 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--cor-primaria);    /* ainda mantém o hover na cor primária */
+    transform: scale(1.1);
+}
+
+/* Botão de tema (sol/lua) - cor branca */
+.toggle-theme-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #fff;                   /* ← branco puro */
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.toggle-theme-btn:hover {
+    color: var(--cor-primaria);    /* hover continua usando a cor primária */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Tema escuro do espelho */
+body.dark-mode header {
+    /* Exemplo: um gradiente mais escuro */
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
