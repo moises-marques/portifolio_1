@@ -10,12 +10,22 @@
 <body>
 
     <header>
+
+      <!-- VITRINE DE VÍDEO NO REFLEXO -->
+        <div class="header-video">
+          <video autoplay muted loop playsinline>
+            <source src="img/0802.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+          </video>
+        </div>
+
         <div class="nome-e-profissao">
             <div class="titulo-animado">
                 <h1>Nome do Profissional</h1>
             </div>
             <p class="profissao-nome">Sua Profissão ou Título</p>
         </div>
+
         <nav>
             <a href="#about">Sobre Mim</a>
             <a href="#skills">Habilidades</a>
@@ -35,33 +45,202 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <!-- Hero Section -->
+    <!-- SEÇÃO Hero  -->
 <section id="hero">
-    <div class="hero-content">
+    
+     <div class="hero-content">
         <!-- Título principal com efeito de digitação (typewriter) -->
         <h1 class="typewriter">Desenvolvedor Web & Designer Gráfico</h1>
-
         <!-- Subtítulo / slogan -->
         <p class="hero-subtitle">Transformando ideias em experiências digitais incríveis.</p>
-
         <!-- Botões de chamada para ação (CTA) -->
         <div class="hero-buttons">
             <a href="#projects" class="btn-primary">Ver Projetos</a>
             <a href="#contact" class="btn-secondary">Entrar em Contato</a>
         </div>
     </div>
-    
-    <video class="hero-background" autoplay muted loop playsinline>
-        <source src="img/0802.mp4" type="video/mp4">
-        Seu navegador não suporta o vídeo.
-    </video>
-    <!-- Espaço reservado para animação de fundo (vídeo ou partículas) -->
+
     <div class="hero-background"></div>
 
-    
-
 </section>
+
+<!-- ===========================
+     SEÇÃO SOBRE MIM (About)
+     =========================== -->
+<section id="about" class="about-section">
+  <div class="container about-inner">
+    <!-- Foto / avatar -->
+    <figure class="about-photo">
+      <img src="img/marques.jpg" alt="Foto profissional de Moises Marques" loading="lazy" width="360" height="360">
+    </figure>
+
+    <!-- Conteúdo textual -->
+    <div class="about-content">
+      <h2>Sobre Mim</h2>
+
+      <p class="about-intro">
+        Olá — eu sou <strong>Moises Marques</strong>. Sou desenvolvedor front-end e designer com foco em interfaces acessíveis,
+        performáticas e com boa experiência do usuário. Gosto de transformar ideias complexas em produtos simples e úteis.
+      </p>
+
+      <ul class="about-highlights" aria-label="Principais habilidades e ênfases">
+        <li><strong>Especialidade:</strong> HTML, CSS, JavaScript, React</li>
+        <li><strong>Design:</strong> UX/UI, interfaces responsivas</li>
+        <li><strong>Disponibilidade:</strong> Trabalho como freelancer / contratado remoto</li>
+      </ul>
+
+      <div class="about-cta">
+        <a href="docs/cv.pdf" class="btn-primary" download>Baixar CV</a>
+        <a href="#projects" class="btn-secondary">Ver Projetos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <SEÇÃO id="skills" -->
+
+<section id="skills" class="skills-section">
+  <div class="container skills-inner fade-in">
+    <h2 class="fade-in">Minhas Habilidades</h2>
+
+    <div class="skills fade-in">
+      <!-- Skill 1 -->
+      <div class="skill">
+        <h3>HTML5</h3>
+        <div class="skill-bar">
+          <div class="skill-level" data-width="95%"></div>
+        </div>
+      </div>
+
+      <!-- Skill 2 -->
+      <div class="skill fade-in">
+        <h3>CSS3</h3>
+        <div class="skill-bar">
+          <div class="skill-level" data-width="90%"></div>
+        </div>
+      </div>
+
+      <!-- Skill 3 -->
+      <div class="skill fade-in">
+        <h3>JavaScript</h3>
+        <div class="skill-bar">
+          <div class="skill-level" data-width="80%"></div>
+        </div>
+      </div>
+
+      <!-- Skill 4 -->
+      <div class="skill fade-in">
+        <h3>React</h3>
+        <div class="skill-bar">
+          <div class="skill-level" data-width="75%"></div>
+        </div>
+      </div>
+
+      <!-- Skill 5 -->
+      <div class="skill fade-in">
+        <h3>UX / UI Design</h3>
+        <div class="skill-bar">
+          <div class="skill-level" data-width="85%"></div>
+        </div>
+      </div>
+
+      <!-- Skill 6 -->
+      <div class="skill fade-in">
+        <h3>Git &amp; GitHub</h3>
+        <div class="skill-bar">
+          <div class="skill-level" data-width="70%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================
+     SEÇÃO PROJETOS 
+     ========================== -->
+<section id="projects" class="projects-section">
+  <div class="container">
+    <h2 class="section-title">Meus Projetos</h2>
+    <p class="section-subtitle">Confira alguns dos trabalhos que desenvolvi recentemente</p>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="img/codigo.jpeg" alt="Projeto 1" loading="lazy">
+        <div class="project-info">
+          <h3>Projeto 1</h3>
+          <p>Descrição breve do projeto, tecnologias usadas e objetivo.</p>
+          <a href="#" class="btn-primary" target="_blank">Ver Projeto</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="img/notebook.jpeg" alt="Projeto 2" loading="lazy">
+        <div class="project-info">
+          <h3>Projeto 2</h3>
+          <p>Descrição breve do projeto, tecnologias usadas e objetivo.</p>
+          <a href="#" class="btn-primary" target="_blank">Ver Projeto</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="img/homenote.jpeg" alt="Projeto 3" loading="lazy">
+        <div class="project-info">
+          <h3>Projeto 3</h3>
+          <p>Descrição breve do projeto, tecnologias usadas e objetivo.</p>
+          <a href="#" class="btn-primary" target="_blank">Ver Projeto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO CONTATOS -->
+<section id="contact" class="contact-section">
+  <div class="container contact-inner">
+    
+    <!-- Título e subtítulo -->
+    <h2 class="section-title">Contato</h2>
+    <p class="section-subtitle">Entre em contato comigo para projetos, dúvidas ou oportunidades</p>
+
+    <div class="contact-grid">
+
+      <!-- Formulário de contato -->
+      <form class="contact-form" action="https://formspree.io/f/xdklreja" method="POST">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" placeholder="Seu nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary">Enviar Mensagem</button>
+      </form>
+
+
+      <!-- Contatos / redes sociais -->
+      <div class="contact-info">
+        <h3>Fale comigo</h3>
+        <ul class="social-links">
+          <li><a href="mailto:email@exemplo.com"><i class="fas fa-envelope"></i> E-mail</a></li>
+          <li><a href="https://linkedin.com/in/perfil" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          <li><a href="https://github.com/perfil" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+          <li><a href="https://wa.me/5592981067373" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/learn_mind223/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 
     <script src="script.js"></script>
