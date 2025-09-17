@@ -914,6 +914,58 @@ html, body {
   }
 }
 
+/* PARTE DE PROJETOS1-PROJETO2-PROJETO3 */
+/* ===== Páginas de Projeto ===== */
+.project-header {
+  background: var(--cor-principal);
+  padding: 1rem 0;
+  text-align: left;
+}
+
+.project-detail {
+  padding: 3rem 1rem;
+}
+
+.project-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+.project-image {
+  flex: 1 1 350px;
+  max-width: 600px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.project-text {
+  flex: 1 1 300px;
+}
+
+.project-text h2 {
+  margin-bottom: 1rem;
+  color: var(--cor-principal);
+}
+
+.project-text p {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .project-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .project-image {
+    max-width: 100%;
+  }
+}
+
 
   
 /* EFEITO FLIP */
