@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ===== Animação das barras de SKILLS =====
+//  Animação das barras de SKILLS 
 document.addEventListener("DOMContentLoaded", () => {
   const skillLevels = document.querySelectorAll(".skill-level");
 
-  // Função que ativa a animação quando a seção entra na tela
+  //  Função que ativa a animação quando a seção entra na tela
   const animateSkills = (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// ===== Fade-in ao rolar =====
+//  Fade-in ao rolar 
 document.addEventListener("DOMContentLoaded", () => {
   const faders = document.querySelectorAll(".fade-in");
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   faders.forEach(el => fadeObserver.observe(el));
 });
 
-// ===== Barras de progresso com efeito de cascata =====
+//  Barras de progresso com efeito de cascata 
 document.addEventListener("DOMContentLoaded", () => {
   const skillLevels = document.querySelectorAll(".skill-level");
 
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ===== FADE-IN DO TEXTO =====
+  //  FADE-IN DO TEXTO 
   const fadeElements = document.querySelectorAll(".skills-section, .skills-section h2, .skills-section p");
   fadeElements.forEach(el => {
     el.style.opacity = 0;
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }, idx * 150);
         });
 
-        // ===== BARRAS DE PROGRESSO COM CASCATA =====
+        //  BARRAS DE PROGRESSO COM CASCATA 
         const skillLevels = document.querySelectorAll(".skill-level");
         skillLevels.forEach((bar, index) => {
           const width = bar.getAttribute("data-width"); // pega a largura definida no HTML
