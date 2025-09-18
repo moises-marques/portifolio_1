@@ -1183,9 +1183,11 @@ body {
 
 /* ===== HEADER BASE ===== */
 .site-header {
-  background: #222;       /* Cor de fundo */
-  color: #fff;            /* Cor do texto */
-  padding: 40px 20px;
+  background: #222;
+  color: #fff;
+  width: 100%;        /* garante que cubra toda a tela */
+  padding: 40px 0;    /* 40px cima/baixo | 0px laterais */
+  box-sizing: border-box;
 }
 
 .header-content {
