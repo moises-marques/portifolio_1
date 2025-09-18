@@ -12,6 +12,8 @@
 body {
   min-height: 100vh;
 
+  min-height: 100vh;
+
   /* Coloque sua imagem no caminho correto */
   background: url("img/body.jpg") center/cover no-repeat fixed;
 
@@ -148,9 +150,111 @@ header > *:not(.header-video) {
   }
 }
 
-/* ==========================
-   SEÇÃO HERO  (STYLE)
-   ========================== */
+/* SEÇÃO NAVE */
+nav a {
+  text-decoration: none;
+  color: #555;
+  margin-left: 25px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+/* Efeito ao passar o mouse sobre os links */
+nav a:hover {
+  color: #007bff;
+}
+
+/* Transforma os links em botões */
+nav a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px; /* Adiciona a borda arredondada */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Efeito ao passar o mouse */
+nav a:hover {
+  background-color: #05070a;
+  border-color: #0056b3;
+  color: #ffc107; /* Muda a cor da letra para amarelo */
+}
+
+/* Estilo dos ícones de redes sociais */
+/* Ícones das redes sociais - cor branca */
+.social-links a {
+  color: #fff; /* ← branco puro */
+  font-size: 1.5em;
+  margin-left: 15px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--cor-primaria); /* ainda mantém o hover na cor primária */
+  transform: scale(1.1);
+}
+
+/* Botão de tema (sol/lua) - cor branca */
+.toggle-theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #fff; /* ← branco puro */
+  margin-right: 20px;
+  transition: color 0.3s;
+}
+
+.toggle-theme-btn:hover {
+  color: var(--cor-primaria); /* hover continua usando a cor primária */
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Tema escuro do espelho */
+body.dark-mode header {
+  /* Exemplo: um gradiente mais escuro */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+}
+
+/* Ajuste para garantir que o conteúdo fique por cima */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero background canvas */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* atrás do conteúdo */
+  pointer-events: none; /* cliques passam pelo canvas */
+  overflow: hidden;
+}
+
+/* canvas deve cobrir toda a área */
+/* Hero background canvas */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* atrás do conteúdo */
+  pointer-events: none; /* cliques passam pelo canvas */
+  overflow: hidden;
+}
+
+/*SEÇÃO HERO  (STYLE)*/
 
 #hero {
   position: relative;
@@ -164,11 +268,27 @@ header > *:not(.header-video) {
   padding-top: 170px; /* ou ajuste conforme a altura real do header */
 }
 
+/* O conteúdo da Hero Section */
+.hero-content {
+  z-index: 2;
+}
+
+.hero-section h1 {
+  font-size: 3.5em;
+  margin-bottom: 0.5em;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p {
+  font-size: 1.5em;
+  margin-bottom: 2em;
+}
+
 /* área do fundo (vídeo/particles) - z-index baixo */
 .hero-background {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   /* fallback visual — substitua ou remova se for usar vídeo/canvas */
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.12));
@@ -236,7 +356,6 @@ header > *:not(.header-video) {
   margin-top: 0.8rem;
 }
 
-/* ===== Destaque especial ===== */
 #hero .typewriter,
 #hero .hero-subtitle {
   color: #f0ec04; /* Amarelo vibrante */
@@ -253,6 +372,7 @@ header > *:not(.header-video) {
   z-index: 0;
   pointer-events: none; /* para que o clique passe pelo vídeo */
 }
+
 .hero-content {
   position: relative;
   z-index: 1; /* garante que o texto e botões fiquem acima do vídeo */
@@ -431,9 +551,8 @@ body.dark-mode header {
   overflow: hidden;
 }
 
-/* ===========================
-   SOBRE MIM (About)
-   =========================== */
+/* SOBRE MIM  */
+
 .about-section {
   padding: 6rem 1.5rem;
   background-color: var(
@@ -538,15 +657,24 @@ body.dark-mode header {
 .about-section {
   background-attachment: fixed; /* 👈 parallax aqui */
   background-image: url("img/moises.jpg");
+
+  background-attachment: fixed;
+  background-image: url("img/moises.jpg");
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 10%;
   padding: 6rem 1.5rem;
+
   color: var(--cor-texto-principal);
+
+  color: var(
+    --cor-texto-principal
+  ); /* permite pseudo-elemento ficar para fora */
 }
 
 .about-section::before {
-  content: "";
+  content: var(--cor-texto-principal);
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.3); /* leve escurecimento */
@@ -557,9 +685,9 @@ body.dark-mode header {
   z-index: 2; /* garante que o texto fica acima da camada */
 }
 
-/* ==========================
+/* 
    SEÇÃO HABILIDADES (SKILLS)
-   ========================== */
+    */
 .skills-section {
   padding: 6rem 1.5rem;
   background: var(--cor-fundo-header);
@@ -597,17 +725,21 @@ body.dark-mode header {
   transition: width 1.4s ease-out;
 }
 
+/*  SEÇÃO SKILLS (substituir o bloco atual)  */
 .skills-section {
   background-attachment: fixed; /* 👈 parallax aqui */
   background-image: url("img/pereira.png");
+
+  background-attachment: fixed;
+  background-image: url("img/notebook.jpeg");
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 10%;
   padding: 6rem 1.5rem;
   color: var(--cor-texto-principal);
 }
-
-/* ===== Fade-in suave ===== */
+/*  Fade-in suave  */
 .fade-in {
   opacity: 0;
   transform: translateY(25px); /* começa levemente deslocado para baixo */
@@ -665,22 +797,29 @@ body {
   scrollbar-color: #00ff7f #0a0a0a;
 }
 
-/* ==========================
-   SEÇÃO PROJETOS
-   ========================== */
+/* 
+   SEÇÃO PROJETOS */
 .projects-section {
   padding: 6rem 1.5rem;
   background-color: var(--cor-fundo-header);
   color: var(--cor-texto-principal);
   text-align: center;
   position: relative;
+}
 
-  /* Parallax opcional */
+/* Parallax opcional */
+.projects-section {
   background-attachment: fixed;
+
   background-image: url("img/eu.jpg");
+
+  background-image: url("img/homenote.jpeg");
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 10%;
+  padding: 6rem 1.5rem;
+  color: var(--cor-texto-principal);
 }
 
 /* ---------- Fade inicial ---------- */
@@ -765,9 +904,8 @@ body {
   color: #0c0c0c;
 }
 
-/* =======================
-   SEÇÃO CONTATO
-======================= */
+/* 
+   SEÇÃO CONTATO */
 .contact-section {
   padding: 6rem 1.5rem;
   background-color: var(
@@ -781,6 +919,10 @@ body {
 .contact-section {
   background-attachment: fixed; /* 👈 parallax aqui */
   background-image: url("img/pereira.png");
+
+  background-attachment: fixed;
+  background-image: url("img/pereira.png");
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 10%;
@@ -833,10 +975,9 @@ body {
 }
 
 #contact .section-subtitle:hover {
-  background: rgba(255, 255, 255, 0.18); /* um pouquinho mais claro no hover */
+  background: rgba(255, 255, 255, 0.18);
 }
 
-/* Grid da seção: formulário + contatos */
 .contact-grid {
   display: flex;
   gap: 3rem;
@@ -882,6 +1023,9 @@ body {
 .contact-form textarea::placeholder {
   color: #fff; /* coloque a cor que quiser (ex: branco) */
   opacity: 1; /* importante! força o navegador a não aplicar transparência */
+
+  color: #fff;
+  opacity: 1;
 }
 
 .contact-form input:focus,
@@ -940,9 +1084,8 @@ body {
   color: var(--cor-primaria);
 }
 
-/* =======================
-   Responsividade
-======================= */
+/*
+   Responsividade */
 @media (max-width: 900px) {
   .contact-grid {
     flex-direction: column;
@@ -956,6 +1099,7 @@ body {
 }
 
 /* PARTE DE PROJETOS1-PROJETO2-PROJETO3 */
+
 /* ===== Páginas de Projeto ===== */
 .project-header {
   background: var(--cor-principal);
@@ -965,6 +1109,25 @@ body {
 
 .project-detail {
   padding: 3rem 1rem;
+}
+
+.project-header {
+  background: var(--cor-principal);
+  padding: 1rem 5;
+  text-align: left;
+}
+
+/*  Novas cores para os títulos principais  */
+.section-title {
+  color: #ffea00;
+}
+
+.section-subtitle {
+  color: #ffea00;
+}
+
+.project-detail {
+  padding: 5rem 1rem;
 }
 
 .project-content {
@@ -980,6 +1143,13 @@ body {
   max-width: 600px;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  flex: none;
+  max-width: 600px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 500px;
+  height: 400px;
 }
 
 .project-text {
@@ -988,12 +1158,17 @@ body {
 
 .project-text h2 {
   margin-bottom: 1rem;
+
   color: var(--cor-principal);
+
+  color: #f0ec04;
 }
 
 .project-text p {
   margin-bottom: 2rem;
   line-height: 1.6;
+
+  color: #f0ec04;
 }
 
 /* Responsivo */
@@ -1006,14 +1181,6 @@ body {
     max-width: 100%;
   }
 }
-
-/* EFEITO FLIP */
-
-/* .container {
-  
-  width: 100px;
-  height: 200px 
-} */
 
 /* .clip {
   position: absolute;
