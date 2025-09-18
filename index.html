@@ -11,26 +11,41 @@
 <body>
 
     <header class="site-header">
-        <div class="header-content">
-          <h1>Nome do Profissional</h1>
-          <p class="profissao-nome">Sua Profissão ou Título</p>
+    <div class="header-video">
+        <video autoplay muted loop>
+            <source src="img/0802.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo em background.
+        </video>
+    </div>
 
-          <nav class="menu">
+    <div class="header-content">
+        <div class="nome-e-profissao">
+            <div class="titulo-animado">
+                <h1>Nome do Profissional</h1>
+            </div>
+            <p class="profissao-nome">Sua Profissão ou Título</p>
+        </div>
+
+        <nav class="menu">
             <a href="#about">Sobre Mim</a>
             <a href="#skills">Habilidades</a>
             <a href="#projects">Projetos</a>
             <a href="#contact">Contato</a>
-          </nav>
+        </nav>
 
-          <div class="social-links">
+        <div class="social-links">
             <a href="mailto:email@exemplo.com"><i class="fas fa-envelope"></i></a>
             <a href="https://linkedin.com/in/perfil" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/perfil" target="_blank"><i class="fab fa-github"></i></a>
             <a href="https://www.instagram.com/learn_mind223/" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/92981067373" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          </div>
         </div>
-    </header>
+
+        <button class="toggle-theme-btn" aria-label="Alternar tema">
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+</header>
 
     <!-- SEÇÃO Hero  -->
 <section id="hero">
@@ -224,9 +239,7 @@
   </div>
 </section>
 
-
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>

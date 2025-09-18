@@ -23,90 +23,98 @@ body {
 }
 
 /* Header com glassmorphism + reflexo */
-header {
-  position: relative;             /* necessário para o ::after posicionar */
-  min-height: 100px;              /* garante altura */
-  padding: 0px 70px;             /* espaço interno */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: var(--sombra);
-    /* ...mantém todo o resto que já está... */
-  position: fixed;      /* fixa no topo da janela */
-  top: 0;               /* cola no topo */
-  left: 0;              /* garante alinhamento horizontal */
-  width: 90%;          /* ocupa a largura inteira */
-  z-index: 1000;   
 
-  /* fundo translúcido (não use cor sólida opaca) */
-  background-color: rgba(255, 255, 255, 0.06);
+.site-header {
+    position: fixed;      /* em vez de relative */
+    top: 0;               /* gruda no topo */
+    left: 0;
+    width: 100%;          /* ocupa toda a largura da tela */
+    z-index: 999;         /* fica acima das outras seções */
+    min-height: 40px;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--sombra);
+   
 
-  /* borda sutil para destacar */
-  border: 1px solid rgba(255, 255, 255, 0.08);
 
-  /* efeito real de vidro - blur sobre o que está atrás */
-  backdrop-filter: blur(10px) saturate(140%);
-  -webkit-backdrop-filter: blur(10px) saturate(140%);
+    /* fundo translúcido */
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-  /* garante que o reflexo não apareça fora do header */
-  overflow: hidden;
+    /* efeito blur sobre o que está atrás */
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
+
+    overflow: hidden;
 }
 
-/* camada de brilho/reflexo (dá o aspecto "espelhado") */
+/* camada de brilho/reflexo */
 header::after {
-  content: "";
-  position: absolute;
-  inset: 0; /* top:0; right:0; bottom:0; left:0 */
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.18) 0%,
-    rgba(255,255,255,0.06) 20%,
-    rgba(255,255,255,0.02) 35%,
-    rgba(255,255,255,0.00) 100%
-  );
-  mix-blend-mode: overlay; /* mistura o brilho com o conteúdo de trás */
-  opacity: 0.95;
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.18) 0%,
+        rgba(255,255,255,0.06) 20%,
+        rgba(255,255,255,0.02) 35%,
+        rgba(255,255,255,0.00) 100%
+    );
+    mix-blend-mode: overlay;
+    opacity: 0.95;
 }
 
-/* fallback para navegadores que NÃO suportam backdrop-filter */
+/* fallback para navegadores sem backdrop-filter */
 @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
-  header {
-    /* usa um gradiente translúcido como fallback */
-    background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-  header::after { display: none; }
+    header {
+        background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+        border: 1px solid rgba(255,255,255,0.06);
+    }
+    header::after { display: none; }
 }
 
+/* Vídeo de fundo */
 .header-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    height: 100%;
 }
 
 .header-video video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.15; /* ajusta intensidade do vídeo */
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.15;
 }
 
-/* garante que o conteúdo do header fique acima do vídeo */
-header > *:not(.header-video) {
-  position: relative;
-  z-index: 1;
+/* Conteúdo do header */
+.header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-
-/* Estilo para o nome e a profissão */
+/* Nome e profissão */
+.nome-e-profissao { 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    padding-left: 20px; /* afasta do canto esquerdo */
+    margin-left: 30px;
+}
 .nome-e-profissao h1 {
     margin: 0;
-    font-size: 2.2em;
-    color: var(--cor-fundo)
+    font-size: 2.0em;
+    color: var(--cor-fundo);
 }
-
 .nome-e-profissao p {
     margin: 0;
     font-size: 1.1em;
@@ -114,99 +122,89 @@ header > *:not(.header-video) {
     color: #ffc107;
 }
 
-
-
-/* Estilos para a animação do letreiro */
+/* Letreiro animado */
 .titulo-animado {
-    overflow: hidden; 
+    overflow: hidden;
     white-space: nowrap;
-    width: 250px; 
+    width: 100%;
 }
 
 .titulo-animado h1 {
     display: inline-block;
     animation: scroll-left 10s linear infinite;
+    text-align: left;
 }
 
-/* A regra que cria a animação do letreiro */
 @keyframes scroll-left {
-    0% {
-        transform: translateX(100%); 
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
-/* SEÇÃO NAVE */
-nav a {
-    text-decoration: none;
-    color: #555;
-    margin-left: 25px;
-    font-weight: bold;
-    transition: color 0.3s;
+/* Área direita: botão, menu, redes sociais */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre botão, menu e redes sociais */
 }
 
-/* Efeito ao passar o mouse sobre os links */
-nav a:hover {
-    color: #007BFF;
-}
-
-/* Transforma os links em botões */
-nav a {
-    text-decoration: none;
-    color: #fff;
-    background-color: #007BFF;
-    border: none;  
-    padding: 10px 20px;
-    border-radius: 5px; /* Adiciona a borda arredondada */
-    transition: background-color 0.3s, color 0.3s;
-}
-
-/* Efeito ao passar o mouse */
-nav a:hover {
-    background-color: #05070a;
-    border-color: #0056b3;
-    color: #ffc107; /* Muda a cor da letra para amarelo */
-}
-
-/* Estilo dos ícones de redes sociais */
-/* Ícones das redes sociais - cor branca */
-.social-links a {
-    color: #fff;                   /* ← branco puro */
-    font-size: 1.5em;
-    margin-left: 15px;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.social-links a:hover {
-    color: var(--cor-primaria);    /* ainda mantém o hover na cor primária */
-    transform: scale(1.1);
-}
-
-/* Botão de tema (sol/lua) - cor branca */
+/* Botão alternar tema */
 .toggle-theme-btn {
     background: none;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
-    color: #fff;                   /* ← branco puro */
-    margin-right: 20px;
+    color: #fff;
     transition: color 0.3s;
 }
 
 .toggle-theme-btn:hover {
-    color: var(--cor-primaria);    /* hover continua usando a cor primária */
+    color: var(--cor-primaria);
 }
 
-.header-right {
+/* Menu principal */
+/* Centraliza o menu horizontalmente */
+nav.menu {
     display: flex;
+    justify-content: center; /* centraliza os links dentro do menu */
     align-items: center;
+    gap: 25px; /* espaço entre cada link do menu */
 }
 
-/* Tema escuro do espelho */
+
+nav.menu a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF;
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav.menu a:hover {
+    background-color: #05070a;
+    color: #ffc107;
+}
+
+/* Redes sociais */
+.social-links {
+    display: flex;
+    gap: 20px; /* espaço entre cada ícone */
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.3em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--cor-primaria);
+    transform: scale(1.1);
+}
+
+/* Tema escuro */
 body.dark-mode header {
-    /* Exemplo: um gradiente mais escuro */
     background: linear-gradient(
         135deg,
         rgba(0, 0, 0, 0.5) 0%,
@@ -217,7 +215,8 @@ body.dark-mode header {
     -webkit-backdrop-filter: blur(10px) saturate(180%);
 }
 
-/* Ajuste para garantir que o conteúdo fique por cima */
+/* SEÇÃO HERO */
+
 .hero-content {
   position: relative;
   z-index: 2;
@@ -744,8 +743,7 @@ html, body {
   color: #0c0c0c;
 }
 
-/* 
-   SEÇÃO CONTATO */
+/* SEÇÃO CONTATO */
 .contact-section {
   padding: 6rem 1.5rem;
   background-color: var(--cor-fundo-header); /* fundo leve/translúcido conforme tema */
@@ -808,8 +806,6 @@ html, body {
 #contact .section-subtitle:hover {
   background: rgba(255, 255, 255, 0.18); 
 }
-
-
 .contact-grid {
   display: flex;
   gap: 3rem;
@@ -817,8 +813,6 @@ html, body {
   align-items: flex-start;
   flex-wrap: wrap;
 }
-
-/* Formulário */
 .contact-form {
   flex: 1;
   min-width: 280px;
@@ -828,18 +822,15 @@ html, body {
   gap: 1rem;
   color: #f0ec04;
 }
-
 .contact-form .form-group {
   display: flex;
   flex-direction: column;
   text-align: left;
 }
-
 .contact-form label {
   margin-bottom: 0.3rem;
   font-weight: 600;
 }
-
 .contact-form input,
 .contact-form textarea {
   padding: 0.75rem 1rem;
@@ -850,21 +841,17 @@ html, body {
   font-size: 1rem;
   transition: border 0.3s ease, background-color 0.3s ease;
 }
-
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: #fff;             
   opacity: 1;               
 }
-
-
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--cor-primaria);
   background-color: rgba(255,255,255,0.1);
 }
-
 .contact-form button {
   padding: 0.85rem 1.5rem;
   border: none;
@@ -874,25 +861,20 @@ html, body {
   cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
-
 .contact-form button:hover {
   transform: translateY(-2px);
 }
-
-/* Contatos / redes sociais */
 .contact-info {
   flex: 1;
   min-width: 250px;
   max-width: 400px;
   text-align: left;
 }
-
 .contact-info h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--cor-primaria);
 }
-
 .contact-info .social-links {
   list-style: none;
   padding: 0;
@@ -900,7 +882,6 @@ html, body {
   flex-direction: column;
   gap: 0.75rem;
 }
-
 .contact-info .social-links li a {
   display: flex;
   align-items: center;
@@ -909,13 +890,11 @@ html, body {
   font-weight: 500;
   transition: color 0.3s ease;
 }
-
 .contact-info .social-links li a:hover {
   color: var(--cor-primaria);
 }
 
-/*
-   Responsividade */
+/*Responsividade */
 @media (max-width: 900px) {
   .contact-grid {
     flex-direction: column;
@@ -929,26 +908,20 @@ html, body {
 }
 
 /* PARTE DE PROJETOS1-PROJETO2-PROJETO3 */
-
 .project-header {
   background: var(--cor-principal);
   padding: 1rem 5;
   text-align: left;
 }
-
-/*  Novas cores para os títulos principais  */
 .section-title {
   color: #ffea00;       
 }
-
 .section-subtitle {
   color: #ffea00;       
 }
-
 .project-detail {
   padding: 5rem 1rem;
 }
-
 .project-content {
   display: flex;
   flex-wrap: wrap;
@@ -956,7 +929,6 @@ html, body {
   align-items: flex-start;
   margin-top: 2rem;
 }
-
 .project-image {
   flex: none;
   max-width: 600px;
@@ -965,16 +937,13 @@ html, body {
   width: 500px;
   height: 400px;
 }
-
 .project-text {
   flex: 1 1 300px;
 }
-
 .project-text h2 {
   margin-bottom: 1rem;
   color: #f0ec04;
 }
-
 .project-text p {
   margin-bottom: 2rem;
   line-height: 1.6;
