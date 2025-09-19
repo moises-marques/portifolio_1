@@ -222,6 +222,11 @@ body.dark-mode header {
   
 @media (max-width: 768px) {
 
+  .site-header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .header-content {
     flex-direction: column;      /* empilha todos os filhos */
     justify-content: center;     /* centraliza verticalmente */
