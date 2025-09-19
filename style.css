@@ -106,12 +106,12 @@ header::after {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 300px;
+    max-width: 200px;
     padding-left: 20px; /* afasta do canto esquerdo */
-    margin-left: 30px;
+    margin-left: 10px;
 }
 .nome-e-profissao h1 {
-    margin: 0;
+    margin: 1;
     font-size: 2.0em;
     color: var(--cor-fundo);
 }
@@ -188,8 +188,10 @@ nav.menu a:hover {
 
 /* Redes sociais */
 .social-links {
+   position: relative;
     display: flex;
     gap: 20px; /* espaço entre cada ícone */
+    right: 70px;
 }
 
 .social-links a {
@@ -213,6 +215,62 @@ body.dark-mode header {
     );
     backdrop-filter: blur(10px) saturate(180%);
     -webkit-backdrop-filter: blur(10px) saturate(180%);
+}
+
+
+   /* AJUSTE PARA CELULAR */
+  
+@media (max-width: 768px) {
+
+  .header-content {
+    flex-direction: column;      /* empilha todos os filhos */
+    justify-content: center;     /* centraliza verticalmente */
+    align-items: center;         /* centraliza horizontalmente */
+    gap: 20px;                   /* espaço entre os blocos */
+    padding: 15px 10px;          /* respiro interno */
+  }
+
+  .nome-e-profissao {
+    align-items: center;         /* centraliza texto */
+    text-align: center;
+    max-width: 100%;             /* usa toda a largura da tela */
+    padding-left: 0;             /* remove afastamento lateral */
+    margin-left: 0;
+  }
+  .nome-e-profissao h1 {
+    font-size: 1.4rem;           /* título menor */
+  }
+  .profissao-nome {
+    font-size: 1rem;             /* subtítulo menor */
+  }
+
+  nav.menu {
+    flex-direction: row;         /* links em linha */
+    justify-content: center;     /* centraliza dentro do header */
+    flex-wrap: wrap;             /* quebra para a próxima linha se faltar espaço */
+    gap: 10px;                   /* espaço entre links */
+    width: auto;                 /* ocupa só o necessário */
+    margin: 0 auto;              /* garante centralização */
+  }
+  nav.menu a {
+    font-size: 0.75rem;          /* diminui texto */
+    padding: 6px 10px;           /* botões menores */
+  }
+
+  .toggle-theme-btn {
+    align-self: center;          /* centraliza sozinho */
+    font-size: 1.2rem;           /* botão menor */
+    margin-top: 5px;
+  }
+
+  .social-links {
+    position: static;            /* remove posicionamento lateral */
+    justify-content: center;     /* centraliza ícones */
+    gap: 15px;                   /* espaço entre ícones */
+  }
+  .social-links a {
+    font-size: 1.5rem;           /* ícones um pouco menores */
+  }
 }
 
 /* SEÇÃO HERO */
