@@ -9,17 +9,22 @@
     --sombra: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+html {
+  scroll-behavior: smooth; /* rolagem suave */
+}
+
 body {
     min-height: 100vh;
-    
-
-    /* Coloque sua imagem no caminho correto */
     background: url('img/body.jpg') center/cover no-repeat fixed;
-
-    /* Remove a cor/gradiente anterior */
-    
     margin: 0;
     padding: 0;
+}
+
+/* mobile: remove o fixed */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
 }
 
 /* Header com glassmorphism + reflexo */
@@ -294,8 +299,6 @@ body.dark-mode header {
   overflow: hidden;
 }
 
-/* canvas deve cobrir toda a área */
-/* Hero background canvas */
 .hero-background {
   position: absolute;
   inset: 0;
@@ -303,8 +306,6 @@ body.dark-mode header {
   pointer-events: none;    /* cliques passam pelo canvas */
   overflow: hidden;
 }
-
-/*SEÇÃO HERO  (STYLE)*/
 
 #hero {
   position: relative;
@@ -318,8 +319,6 @@ body.dark-mode header {
   padding-top: 170px; /* ou ajuste conforme a altura real do header */
 }
 
-
-/* O conteúdo da Hero Section */
 .hero-content {
     z-index: 2;
 }
@@ -335,20 +334,17 @@ body.dark-mode header {
     margin-bottom: 2em;
 }
 
-/* área do fundo (vídeo/particles) - z-index baixo */
 .hero-background {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  /* fallback visual — substitua ou remova se for usar vídeo/canvas */
   background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.12));
   background-size: cover;
   background-position: center;
   
 }
 
-/* conteudo principal da hero (sobre o fundo) */
 .hero-content {
   position: relative;
   z-index: 1;
@@ -357,7 +353,6 @@ body.dark-mode header {
   padding: 2rem;
 }
 
-/* TITULO - effect: typewriter (CSS básico) */
 .typewriter {
   display: inline-block;
   overflow: hidden;
@@ -366,15 +361,12 @@ body.dark-mode header {
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 3.4rem);
   margin: 0;
-  /* cursor (caret) */
   border-right: .14em solid currentColor;
-  /* animação - revele o texto (ajuste o "to width" em ch conforme o tamanho do seu texto) */
   width: 0;
   animation: typing 3.5s steps(30, end) forwards, blink-caret .75s step-end infinite;
   text-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
 
-/* ajuste o valor '26ch' para corresponder ao nº de caracteres do título real */
 @keyframes typing {
   from { width: 0; }
   to   { width: 26ch; } /* aumentar se seu título for mais longo */
@@ -451,13 +443,31 @@ body.dark-mode header {
 .btn-secondary:hover,
 .btn-secondary:focus { transform: translateY(-2px); outline: none; }
 
-/* Responsividade */
+/* Responsividade HERO */
 @media (max-width: 720px) {
-  #hero { padding: 4rem 1rem; min-height: calc(100vh - 120px); }
-  .typewriter { font-size: clamp(1.6rem, 6vw, 2.4rem); animation-duration: 3s; }
-  .hero-subtitle { font-size: .98rem; }
-  .btn-primary, .btn-secondary { padding: .7rem 1rem; font-size: .95rem; }
+  #hero {
+    background: url('img/body.jpg') center/cover no-repeat;
+    padding: 19rem 1rem 20px 1rem;
+    min-height: 50px;
+    position: relative; /* caso queira adicionar overlays depois */
+  }
+
+  .typewriter {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+    animation-duration: 3s;
+  }
+
+  .hero-subtitle {
+    font-size: .98rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: .7rem 1rem;
+    font-size: .95rem;
+  }
 }
+
 
 /* Dark mode tweaks (integra com seu body.dark-mode já existente) */
 body.dark-mode #hero .hero-background {
@@ -949,6 +959,7 @@ html, body {
   color: #ffc107;
   font-weight: 500;
   transition: color 0.3s ease;
+  margin-left: 90px;
 }
 .contact-info .social-links li a:hover {
   color: var(--cor-primaria);
@@ -970,8 +981,8 @@ html, body {
 /* PARTE DE PROJETOS1-PROJETO2-PROJETO3 */
 .project-header {
   background: var(--cor-principal);
-  padding: 1rem 5;
-  text-align: left;
+  padding: 1rem 5rem;
+  text-align: center;
 }
 .section-title {
   color: #ffea00;       
@@ -1015,6 +1026,8 @@ html, body {
   .project-content {
     flex-direction: column;
     text-align: center;
+    padding: 2rem 5;
+    
   }
   .project-image {
     max-width: 100%;
