@@ -475,8 +475,15 @@ a {
     padding: 30px;
   }
 
+  #hero {
+    position: relative;
+    min-height: 20px !important;
+    padding: 240px 20px !important;
+  }
+
   .titulo-animado h1 {
     font-size: 3rem;
+    
   }
 
   .about-inner {
@@ -509,16 +516,27 @@ a {
     top: 05px;
     gap: 10px;
   }
-
-  .typewriter {
-    font-size: 2.5rem;
-  }
  
   #hero {
     height: 60px;        
     padding: 250px 0;    
     align-items: flex-start; 
   }
+
+  .hero-content {
+    position: relative;
+    top: -30px;
+    max-width: 800px;
+    padding: 0 20px;
+    z-index: 1;
+  }
+
+  .typewriter {
+    font-size: 2.5rem;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+
 
   .hero-buttons {
     flex-direction: column;
@@ -527,6 +545,7 @@ a {
 
   .titulo-animado h1 {
     font-size: 1.5rem;
+    margin-bottom: 30px;
   }
 
   .header-content p {
@@ -541,6 +560,7 @@ a {
 @media (max-width: 480px) {
   .typewriter {
     font-size: 1rem;
+    
   }
 
   .hero-subtitle {
