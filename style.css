@@ -475,6 +475,14 @@ a {
     padding: 30px;
   }
 
+  .about-section {
+    display: block !important;
+    position: relative;
+    margin-top: 30px !important; /* Isso vai dar o empurrão vertical que você quer */
+    padding-top: 50px;
+    background-color: #0f172a; /* Garante que o fundo acompanhe o movimento */
+  }
+
   #hero {
     position: relative;
     min-height: 20px !important;
@@ -498,6 +506,7 @@ a {
 }
 
 @media (max-width: 768px) {
+  
   .menu {
     position: relative;
     flex-direction: column;
@@ -505,6 +514,8 @@ a {
     justify-content: space-between;
     top: 40px;
   }
+
+  
 
   .header-content {
     padding: 20px;
@@ -566,6 +577,8 @@ a {
   .hero-subtitle {
     font-size: 1.3rem;
   }
+
+  
 }
 
 
