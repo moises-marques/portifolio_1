@@ -1,175 +1,183 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Profissional</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Profissional</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
 </head>
+
 <body>
 
-<header class="site-header">
+  <header class="site-header">
     <div class="header-video">
-        <video autoplay muted loop>
-            <source src="img/0802.mp4" type="video/mp4">
-            Seu navegador não suporta vídeo em background.
-        </video>
+      <video autoplay muted loop>
+        <source src="img/0802.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo em background.
+      </video>
     </div>
-
     <div class="header-content">
-        <div class="nome-e-profissao">
-            <div class="titulo-animado">
-                <h1>Moisés Marques Pereira</h1>
-            </div>
-            <p class="profissao-nome">Desenvolvedor de Sistemas Web</p>
+      <div class="nome-e-profissao">
+        <div class="titulo-animado">
+          <h1>Moisés Marques Pereira</h1>
         </div>
+        <p class="profissao-nome">Desenvolvedor de Sistemas Web</p>
+      </div>
 
-        <nav class="menu">
-            <a href="#about">Sobre Mim</a>
-            <a href="#skills">Habilidades</a>
-            <a href="#projects">Projetos</a>
-            <a href="#contact">Contato</a>
-        </nav>
+      <!-- Menu Hambúrguer -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
+      <nav class="menu" id="nav-menu">
+        <a href="#about">Sobre Mim</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#projects">Projetos</a>
+        <a href="#contact">Contato</a>
+      </nav>
 
-          <div class="social-links">
-            <!-- <a href="mailto:email@exemplo.com"><i class="fas fa-envelope"></i></a> -->
-            <a href="https://www.linkedin.com/in/marques-marques-77196726b/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/moises-marques" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.instagram.com/desenvolvedor223/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/92981067373" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-</header>
+      <div class="social-links">
+        <a href="https://wa.me/92981100041" target="_blank" class="btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <!-- SEÇÃO Hero  -->
-<section id="hero">
-    
-     <div class="hero-content">
-        <!-- Título principal com efeito de digitação (typewriter) -->
-        <h1 class="typewriter">Desenvolvedor Web & Designer Gráfico</h1>
-        <!-- Subtítulo / slogan -->
-        <p class="hero-subtitle">Transformando ideias em experiências digitais incríveis.</p>
-        <!-- Botões de chamada para ação (CTA) -->
-        <div class="hero-buttons">
-            <a href="#projects" class="btn-primary">Ver Projetos</a>
-            <a href="#contact" class="btn-secondary">Entrar em Contato</a>
-        </div>
+  <!-- SEÇÃO Hero  -->
+  <section id="hero">
+
+    <div class="hero-content">
+      <!-- Título principal com efeito de digitação (typewriter) -->
+      <h1 class="typewriter">Desenvolvedor Web & Designer Gráfico</h1>
+      <!-- Subtítulo / slogan -->
+      <p class="hero-subtitle">Transformando ideias em experiências digitais incríveis.</p>
+      <!-- Botões de chamada para ação (CTA) -->
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary">Ver Projetos</a>
+        <a href="#contact" class="btn-secondary">Entrar em Contato</a>
+      </div>
     </div>
 
     <div class="hero-background"></div>
 
-</section>
+  </section>
 
-<!--SEÇÃO SOBRE MIM (About)-->
-<section id="about" class="about-section">
-  <div class="container about-inner">
-    <!-- Foto / avatar -->
-    <figure class="about-photo">
-      <img src="img/marques.jpg" alt="Foto profissional de Moises Marques" loading="lazy" width="360" height="360">
-    </figure>
+  <!--SEÇÃO SOBRE MIM (About)-->
+  <section id="about" class="about-section">
+    <div class="container about-inner">
+      <!-- Foto / avatar -->
+      <figure class="about-photo">
+        <img src="img/marques.jpg" alt="Foto profissional de Moises Marques" loading="lazy" width="360" height="360">
+      </figure>
 
-    <!-- Conteúdo textual -->
-    <div class="about-content">
-      <h2>Sobre Mim</h2>
+      <!-- Conteúdo textual -->
+      <div class="about-content">
+        <h2>Sobre Mim</h2>
 
-      <p class="about-intro">
-        Olá — eu sou <strong>Moises Marques</strong>. Sou desenvolvedor front-end e designer com foco em interfaces acessíveis,
-        performáticas e com boa experiência do usuário. Gosto de transformar ideias complexas em produtos simples e úteis.
-      </p>
+        <p class="about-intro">
+          Olá — eu sou <strong>Moises Marques</strong>. Sou desenvolvedor front-end e designer com foco em interfaces
+          acessíveis,
+          performáticas e com boa experiência do usuário. Gosto de transformar ideias complexas em produtos simples e
+          úteis.
+        </p>
 
-      <ul class="about-highlights" aria-label="Principais habilidades e ênfases">
-        <li><strong>Especialidade:</strong> HTML, CSS, JavaScript, React</li>
-        <li><strong>Design:</strong> UX/UI, interfaces responsivas</li>
-        <li><strong>Disponibilidade:</strong> Trabalho como freelancer / contratado remoto</li>
-      </ul>
+        <ul class="about-highlights" aria-label="Principais habilidades e ênfases">
+          <li><strong>Especialidade:</strong> HTML, CSS, JavaScript, React</li>
+          <li><strong>Design:</strong> UX/UI, interfaces responsivas</li>
+          <li><strong>Disponibilidade:</strong> Trabalho como freelancer / contratado remoto</li>
+        </ul>
 
-      <div class="about-cta">
-        <a href="docs/curriculo.pdf" class="btn-primary" download>Baixar CV</a>
-        <a href="#projects" class="btn-secondary">Ver Projetos</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- <SEÇÃO id="skills" -->
-
-<section id="skills" class="skills-section">
-  <div class="container skills-inner fade-in">
-    <h2 class="fade-in">Minhas Habilidades</h2>
-
-    <div class="skills fade-in">
-      <!-- Skill 1 -->
-      <div class="skill">
-        <h3>HTML5</h3>
-        <div class="skill-bar">
-          <div class="skill-level" data-width="95%"></div>
-        </div>
-      </div>
-
-      <!-- Skill 2 -->
-      <div class="skill fade-in">
-        <h3>CSS3</h3>
-        <div class="skill-bar">
-          <div class="skill-level" data-width="90%"></div>
-        </div>
-      </div>
-
-      <!-- Skill 3 -->
-      <div class="skill fade-in">
-        <h3>JavaScript</h3>
-        <div class="skill-bar">
-          <div class="skill-level" data-width="80%"></div>
-        </div>
-      </div>
-
-      <!-- Skill 4 -->
-      <div class="skill fade-in">
-        <h3>React</h3>
-        <div class="skill-bar">
-          <div class="skill-level" data-width="75%"></div>
-        </div>
-      </div>
-
-      <!-- Skill 5 -->
-      <div class="skill fade-in">
-        <h3>UX / UI Design</h3>
-        <div class="skill-bar">
-          <div class="skill-level" data-width="85%"></div>
-        </div>
-      </div>
-
-      <!-- Skill 6 -->
-      <div class="skill fade-in">
-        <h3>Git &amp; GitHub</h3>
-        <div class="skill-bar">
-          <div class="skill-level" data-width="70%"></div>
+        <div class="about-cta">
+          <a href="docs/curriculo.pdf" class="btn-primary" download>Baixar CV</a>
+          <a href="#projects" class="btn-secondary">Ver Projetos</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!--SEÇÃO PROJETOS -->
-<section id="projects" class="projects-section">
-  <div class="container">
-    <h2 class="section-title">Meus Projetos</h2>
-    <p class="section-subtitle">Confira alguns dos trabalhos que desenvolvi recentemente</p>
+  <!-- <SEÇÃO id="skills" -->
 
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="img/codigo.jpeg" alt="Projeto 1" loading="lazy">
-        <div class="project-info">
-          <h3>Projeto 1</h3>
-          <p>Descrição breve do projeto, tecnologias usadas e objetivo.</p>
-          <a href="https://b431f3cf.landing-apost-moises.pages.dev/" target="_blank" class="btn-primary">Ver Projeto</a>
+  <section id="skills" class="skills-section">
+    <div class="container skills-inner fade-in">
+      <h2 class="fade-in">Minhas Habilidades</h2>
+
+      <div class="skills fade-in">
+        <!-- Skill 1 -->
+        <div class="skill">
+          <h3>HTML5</h3>
+          <div class="skill-bar">
+            <div class="skill-level" data-width="95%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="skill fade-in">
+          <h3>CSS3</h3>
+          <div class="skill-bar">
+            <div class="skill-level" data-width="90%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="skill fade-in">
+          <h3>JavaScript</h3>
+          <div class="skill-bar">
+            <div class="skill-level" data-width="80%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="skill fade-in">
+          <h3>React</h3>
+          <div class="skill-bar">
+            <div class="skill-level" data-width="75%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="skill fade-in">
+          <h3>UX / UI Design</h3>
+          <div class="skill-bar">
+            <div class="skill-level" data-width="85%"></div>
+          </div>
+        </div>
+
+        <!-- Skill 6 -->
+        <div class="skill fade-in">
+          <h3>Git &amp; GitHub</h3>
+          <div class="skill-bar">
+            <div class="skill-level" data-width="70%"></div>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- <div class="project-card">
+  <!--SEÇÃO PROJETOS -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title">Meus Projetos</h2>
+      <p class="section-subtitle">Confira alguns dos trabalhos que desenvolvi recentemente</p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="img/codigo.jpeg" alt="Projeto 1" loading="lazy">
+          <div class="project-info">
+            <h3>Projeto 1</h3>
+            <p>Descrição breve do projeto, tecnologias usadas e objetivo.</p>
+            <a href="https://b431f3cf.landing-apost-moises.pages.dev/" target="_blank" class="btn-primary">Ver
+              Projeto</a>
+          </div>
+        </div>
+
+        <!-- <div class="project-card">
         <img src="img/notebook.jpeg" alt="Projeto 2" loading="lazy">
         <div class="project-info">
           <h3>Projeto 2</h3>
@@ -178,34 +186,35 @@
         </div>
       </div> -->
 
-      <div class="project-card">
-        <img src="img/homenote.jpeg" alt="Projeto 3" loading="lazy">
-        <div class="project-info">
-          <h3>Projeto 2</h3>
-          <p>Descrição breve do projeto, tecnologias usadas e objetivo.</p>
-          <a href="https://f70725fb.land-card.pages.dev/" target="_blank" class="btn-primary">Ver Projeto</a>
+        <div class="project-card">
+          <img src="img/homenote.jpeg" alt="Projeto 3" loading="lazy">
+          <div class="project-info">
+            <h3>Projeto 2</h3>
+            <p>Descrição breve do projeto, tecnologias usadas e objetivo.</p>
+            <a href="https://f70725fb.land-card.pages.dev/" target="_blank" class="btn-primary">Ver Projeto</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SEÇÃO CONTATOS -->
-<section id="contact" class="contact-section">
+  <!-- SEÇÃO CONTATOS -->
+  <section id="contact" class="contact-section">
     <!-- Contatos / redes sociais -->
-      <div class="contact-info">
-        <h3>Fale comigo</h3>
-        <ul class="social-links">
-          <li><a href="mailto:mpm10433@gmail.com"><i target="_blank" class="fas fa-envelope"></i> E-mail</a></li>
-          <!-- <li><a href="https://linkedin.com/in/perfil" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+    <div class="contact-info">
+      <h3>Fale comigo</h3>
+      <ul class="social-links">
+        <!-- <li><a href="mailto:mpm10433@gmail.com"><i target="_blank" class="fas fa-envelope"></i> E-mail</a></li> -->
+        <!-- <li><a href="https://linkedin.com/in/perfil" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
           <li><a href="https://github.com/perfil" target="_blank"><i class="fab fa-github"></i> GitHub</a></li> -->
-          <li><a href="https://wa.me/5592981067373" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-          <!-- <li><a href="https://www.instagram.com/learn_mind223/" ><i class="fab fa-instagram"></i> Instagram</a></li> -->
-        </ul>
-      </div>
-</section>
+        <li><a href="https://wa.me/5592981100041" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+        <!-- <li><a href="https://www.instagram.com/learn_mind223/" ><i class="fab fa-instagram"></i> Instagram</a></li> -->
+      </ul>
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
+
 </html>

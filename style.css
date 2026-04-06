@@ -11,8 +11,8 @@ html {
   scroll-behavior: smooth;
 }
 
- body {
- 
+body {
+
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0f0f0f;
   color: #f0f0f0;
@@ -26,7 +26,7 @@ html {
   --primary: #00d4ff;
   --accent: #cefc03;
   --dark: #0f0f0f;
-  --overlay: rgba(0,0,0,0.65);
+  --overlay: rgba(0, 0, 0, 0.65);
 }
 
 .container {
@@ -35,7 +35,9 @@ html {
   padding: 0 20px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 700;
 }
 
@@ -79,7 +81,7 @@ a {
 }
 
 
-          
+
 /* ================= HEADER FIXO COM VÍDEO ================= */
 .site-header {
   position: fixed;
@@ -87,7 +89,7 @@ a {
   left: 0;
   width: 100%;
   z-index: 999;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
   justify-content: space-between;
 
@@ -120,7 +122,7 @@ a {
   z-index: 1;
 }
 
-.nome-e-profissao p{
+.nome-e-profissao p {
   text-align: left;
   position: relative;
   top: 10px;
@@ -142,8 +144,10 @@ a {
 .menu {
   display: flex;
   gap: 30px;
-  margin-left: auto; /* empurra para a direita */
-  margin-top: -70px; /* sobe o menu */
+  margin-left: auto;
+  /* empurra para a direita */
+  margin-top: -70px;
+  /* sobe o menu */
 }
 
 
@@ -223,9 +227,9 @@ a {
 
   text-shadow:
     -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000;
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .hero-buttons {
@@ -249,15 +253,18 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Preto semi-transparente - ajuste o 0.6 */
-  z-index: 1; /* Fica por cima da imagem, mas atrás do conteúdo */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Preto semi-transparente - ajuste o 0.6 */
+  z-index: 1;
+  /* Fica por cima da imagem, mas atrás do conteúdo */
 }
 
 .about-inner {
   display: flex;
   align-items: center;
   gap: 80px;
-  position: relative; /* Faz o conteúdo ficar por cima do overlay */
+  position: relative;
+  /* Faz o conteúdo ficar por cima do overlay */
   z-index: 2;
   flex-wrap: wrap;
 }
@@ -341,7 +348,8 @@ a {
 
 .skill-level {
   height: 100%;
-  width: 0; /* começa em 0 - animação via JS */
+  width: 0;
+  /* começa em 0 - animação via JS */
   background-color: #00d4ff;
   border-radius: 6px;
   transition: width 1.8s ease-in-out;
@@ -368,9 +376,9 @@ a {
 
   text-shadow:
     -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000;
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .projects-grid {
@@ -468,70 +476,102 @@ a {
   transform: translateY(0);
 }
 
-/* ==================== RESPONSIVO ==================== */
+               /* ==================== RESPONSIVO    ==================== */
 
-@media (max-width: 992px) {
-  .header-content {
-    padding: 30px;
+@media (max-width: 768px) {
+
+  /* MOSTRA o botão hamburguer */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+   
   }
 
-  .about-section {
-    display: block !important;
-    position: relative;
-    margin-top: 30px !important; /* Isso vai dar o empurrão vertical que você quer */
-    padding-top: 50px;
-    background-color: #0f172a; /* Garante que o fundo acompanhe o movimento */
-  }
-
-  #hero {
-    position: relative;
-    min-height: 20px !important;
-    padding: 240px 20px !important;
-  }
-
-  .titulo-animado h1 {
-    font-size: 3rem;
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    display: block;
+    border-radius: 2px;
     
   }
 
-  .about-inner {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-photo img {
-    width: 280px;
-    height: 280px;
-  }
-}
-
-@media (max-width: 768px) {
-  
+  /* ESCONDE menu por padrão */
   .menu {
-    position: relative;
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #0f172a;
+    padding: 20px;
+    border-radius: 10px;
     flex-direction: column;
     gap: 15px;
-    justify-content: space-between;
-    top: 40px;
+    z-index: 1000;
+    
   }
 
-  
+  /* MOSTRA quando ativar */
+  .menu.active {
+    display: flex;
+    
+  }
 
+  /* LINKS */
+  .menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.7rem;
+
+  }
+
+  /* AJUSTE HEADER */
   .header-content {
+    position: relative;
     padding: 20px;
   }
 
-  .social-links {
-    position: relative;
-    margin-right: auto;
-    top: 05px;
-    gap: 10px;
+  h1 {
+    margin: -5px;
   }
- 
+
+  .header-content p {
+    top: -20px;
+    
+  }
+
+  /* resto do seu código permanece igual 👇 */
+
+  .social-links {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+  position: relative;
+  top: 7px;
+  right: 10px;
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #00d4ff;
+  transform: scale(1.2);
+}
+
   #hero {
-    height: 60px;        
-    padding: 250px 0;    
-    align-items: flex-start; 
+    height: 60px;
+    padding: 280px 0;
+    align-items: flex-start;
   }
 
   .hero-content {
@@ -548,7 +588,6 @@ a {
     overflow: visible !important;
   }
 
-
   .hero-buttons {
     flex-direction: column;
     align-items: center;
@@ -564,23 +603,6 @@ a {
   }
 
   .profissao-nome {
-    font-size: 1rem;
-  }
+  font-size: 1.0rem !important;
 }
-
-@media (max-width: 480px) {
-  .typewriter {
-    font-size: 1rem;
-    
-  }
-
-  .hero-subtitle {
-    font-size: 1.3rem;
-  }
-
-  
 }
-
-
-                    
-
